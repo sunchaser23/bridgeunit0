@@ -1,0 +1,7 @@
+{
+    "require": {
+        "deemru/unitsbridge": "^1.0",
+        "deemru/waveskit": "^1.0",
+        "deemru/unitskit": "^1.0"
+    }
+}
