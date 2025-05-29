@@ -10,15 +10,6 @@ A PHP script for bridging UNIT0 tokens between the Unit0 blockchain and Waves bl
 - Private keys for both Unit0 and Waves accounts
 - Bridge contract address
 
-## Configuration
-
-The script requires configuration in `config.php` with the following parameters:
-
-- `unit0.pk`: Your Unit0 private key
-- `unit0.bridgecontract`: The bridge contract address
-- `waves.pk`: Your Waves private key  
-- `waves.chain`: Chain type ('T' for testnet, 'W' for mainnet)
-
 ## Usage
 
 The script bridges UNIT0 tokens from Unit0 blockchain to Waves blockchain.
@@ -34,9 +25,16 @@ Basic usage:
 
 ## Configuration
 
-1. Create config and onfigure it
+1. Create config.php
 
 > cp config.sample.php config.php
+
+The script requires configuration in `config.php` with the following parameters:
+
+- `unit0.pk`: Your Unit0 private key
+- `unit0.bridgecontract`: The bridge contract address
+- `waves.pk`: Your Waves private key  
+- `waves.chain`: Chain type ('T' for testnet, 'W' for mainnet)
 
 ## Bridge Unit0
 
