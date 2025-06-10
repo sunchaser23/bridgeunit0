@@ -1,4 +1,6 @@
-$config = [
+<?php
+    $config = [
+
     'unit0' => [
         'pk' => 'your_private_key',
         'bridgecontract' => 'your_bridgecontract',
@@ -8,3 +10,4 @@ $config = [
         'chain' => 'your_chain',
     ]
 ];
+?>
