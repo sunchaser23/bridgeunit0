@@ -38,6 +38,7 @@ The script requires configuration in `config.php` with the following parameters:
 
 ## Bridge Unit0
 
-Bridge 1 unit0
 
-> php bridgeunit0.php 1
+> php bridgeunit0.php 1 # Bridges 1 UNIT0
+> 
+> php bridgeunit0.php ALL # Brudges all UNIT0 except 1
