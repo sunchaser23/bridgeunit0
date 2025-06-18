@@ -7,16 +7,14 @@ use deemru\UnitsKit;
 use deemru\WavesKit;
 
 if ($argc!=2)
-    die("Usage: php bridgeunit0.php [amount]\n");
-
-$amount=$argv[1];
+    die("Usage: php bridgeunit0.php [amount|ALL]\n");
+    
+$wk = new WavesKit( $config['waves']['chain'] );
 $txhash=false;
-
 $unitsPrivateKey = $config['unit0']['pk'];
 $wavesPrivateKey = $config['waves']['pk'];
 $bridgeContract = $config['unit0']['bridgecontract'];
 
-$wk = new WavesKit( $config['waves']['chain'] );
 if ($config['waves']['chain']=='T')
 {
         $bridge = UnitsBridge::TESTNET();
@@ -34,6 +32,21 @@ $uk->setPrivateKey( $unitsPrivateKey );
 $wk->log('i', 'UNITS: ' . $uk->getAddress() . ' ~ ' . $uk->stringValue( $uk->getBalance() ) . ' UNIT0' );
 $wk->setPrivateKey( $wavesPrivateKey );
 $wk->log('i', 'WAVES: ' . str_pad( $wk->getAddress(), 42 ) . ' ~ ' . $uk->stringValue( $wk->balance( null, 'WAVES' ), 8 ) . ' WAVES' );
+
+if ($argv[1]=='ALL')
+{
+    $unit0balance = UnitsKit::stringValue($uk->getBalance());
+    $amount = intval($unit0balance - 1);
+}
+else
+{
+    if (is_numeric($argv[1]))
+        $amount=intval($argv[1]);
+    else
+        $wk->log('w', 'Invalid amount specified.');
+        die(1);
+}    
+
 $wk->log('i', 'amount: ' . $amount);
 $wk->log('i', 'txhash: ' . $txhash);
 
